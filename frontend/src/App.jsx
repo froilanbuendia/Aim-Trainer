@@ -2,10 +2,10 @@ import {useEffect, useState} from 'react'
 
 function App() {
 
-  const [backendData, setBackendData] = useState([{}])
+  const [backendData, setBackendData] = useState([])
 
   useEffect(() => {
-    fetch("/").then(
+    fetch("http://localhost:8000").then(
       response => response.json()
     ).then(
       data => { 
@@ -15,7 +15,7 @@ function App() {
   }, [])
   return (
     <div>
-      {(typeof backendData.user === 'undefined') ? (
+      {backendData.length === 0 ? (
         <p>Loading... </p>
       ): (
         backendData.users.map((user, i) => (
