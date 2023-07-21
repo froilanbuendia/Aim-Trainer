@@ -17,7 +17,12 @@ jobs:
         with:
           node-version: v20.5.0
       - name: install dependencies
-        run: npm ci
+        run: |
+          if [ -e package-lock.json ]; then
+          npm ci
+          else
+          npm i
+          fi
       - name: run lint
         run: npm run lint
       - name: run tests
