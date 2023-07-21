@@ -1,8 +1,7 @@
 name: learn-github-actions
 
 on: 
-  push:
-    branches: [*]
+  push
   pull_request:
     branches: [main]
 
