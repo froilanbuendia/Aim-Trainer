@@ -1,6 +1,8 @@
 const express = require('express')
 const app = express()
-const port = 5173
+var cors = require('cors')
+const port = 8000
+app.use(cors())
 
 app.get('/', (req, res) => {
   res.json({"users": ["userOne", "userTwo", "userThree"]})
