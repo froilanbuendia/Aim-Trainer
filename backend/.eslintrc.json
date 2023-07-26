@@ -4,6 +4,9 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
+  "env": {
+    "jest": true
+  },
   "rules": {
     "comma-dangle": 0
   }
