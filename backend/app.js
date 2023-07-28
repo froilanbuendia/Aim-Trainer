@@ -1,13 +1,13 @@
-const express = require('express')
-const app = express()
-var cors = require('cors')
-const port = 8000
-app.use(cors())
+const express = require('express');
+
+const app = express();
+
+const cors = require('cors');
+
+app.use(cors());
 
 app.get('/', (req, res) => {
-  res.json({"users": ["userOne", "userTwo", "userThree"]})
-})
+  res.status(200).send('Hello World!');
+});
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+module.exports = app;
