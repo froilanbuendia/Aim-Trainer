@@ -1,4 +1,4 @@
-require("dotenv").config();
+require("dotenv").config({ path: "../.env" });
 
 const DB_USER = process.env.DB_USER;
 const DB_HOST = process.env.DB_HOST;

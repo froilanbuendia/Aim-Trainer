@@ -3,7 +3,7 @@
 exports.shorthands = undefined;
 
 exports.up = (pgm) => {
-  pgm.createTable("user", {
+  pgm.createTable("users", {
     id: "uuid",
     name: { type: "varchar(1000)" },
     username: { type: "varchar(1000)", notNull: true },

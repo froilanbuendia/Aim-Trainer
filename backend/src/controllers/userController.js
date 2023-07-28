@@ -1,8 +1,10 @@
+// Controllers interact with the service
+
 const userService = require("../services/userService");
 
-const getAllUsers = (req, res) => {
-  const allUsers = userService.getAllUsers();
-  res.send("Get all users");
+const getAllUsers = async (req, res) => {
+  const allUsers = await userService.getAllUsers();
+  res.send({ data: allUsers, error: null });
 };
 
 const getOneUser = (req, res) => {
@@ -10,9 +12,9 @@ const getOneUser = (req, res) => {
   res.send("Get an existing user");
 };
 
-const createNewUser = (req, res) => {
-  const createdUser = userService.createNewUser();
-  res.send("Create a new user");
+const createNewUser = async (req, res) => {
+  const createdUser = await userService.createNewUser(req.body);
+  res.send({ data: createdUser, error: null });
 };
 
 const updateOneUser = (req, res) => {

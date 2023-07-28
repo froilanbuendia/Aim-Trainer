@@ -1,13 +1,29 @@
-const { pool, client } = require("./db");
+// All database interactions with the User table
 
-const DB = require("./users");
+const { pool } = require("./db");
 
 const getAllUsers = async () => {
-  await pool.query("SELECT NOW()");
+  const res = await pool.query("select * from users");
+  return res.rows;
+};
 
-  await client.connect();
+const createNewUser = async (newUser) => {
+  const values = [
+    newUser.id,
+    newUser.name,
+    newUser.username,
+    newUser.email,
+    newUser.highest_score,
+  ];
+  const res = await pool.query(
+    `insert into users(id, name, username, email, highest_score) values($1, $2, $3, $4, $5) returning *`,
+    values
+  );
 
-  console.log(await client.query("SELECT NOW()"));
+  return res.rows[0];
+};
 
-  await client.end();
+module.exports = {
+  getAllUsers,
+  createNewUser,
 };
