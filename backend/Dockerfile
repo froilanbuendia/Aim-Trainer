@@ -12,4 +12,4 @@ ENV PORT=8000
 
 EXPOSE 8080
 
-CMD [ "node", "app.js" ]
+CMD [ "node", "src/app.js" ]
