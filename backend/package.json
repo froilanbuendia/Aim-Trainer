@@ -4,9 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node src/app.js",
     "test": "jest",
     "lint": "eslint '**/*.js'",
-    "migrate": "source .env && node-pg-migrate -m './src/migrations'"
+    "migrate": "export $(cat .env | xargs) && node-pg-migrate -m './src/migrations'",
+    "migrate:prod": "export $(cat .env.prod | xargs) && node-pg-migrate -m './src/migrations'"
   },
   "author": "",
   "license": "ISC",
