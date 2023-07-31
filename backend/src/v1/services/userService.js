@@ -1,6 +1,6 @@
 // Service talks to the database and has the busines logic
-const { v4: uuid } = require("uuid");
-const User = require("../database/User");
+const { v4: uuid } = require('uuid');
+const User = require('../../database/User');
 
 const getAllUsers = async () => {
   return await User.getAllUsers();
