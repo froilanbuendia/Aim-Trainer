@@ -26,3 +26,5 @@ jobs:
         run: npm run lint
       - name: run tests
         run: npm run test
+      - name: run build
+        run: docker build .
