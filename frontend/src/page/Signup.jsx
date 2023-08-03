@@ -1,16 +1,26 @@
 import React, { useState } from 'react';
-// import { signInWithPopup } from '../services/firebase';
-import { signInWithPopup } from 'firebase/auth';
-// import { auth } from '../services/firebase';
+import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+// import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from '../services/firebase';
 
 function Signup() {
   const [username, setUsername] = useState('');
+  // const [user, setUser] = useAuthState(auth);
+  const googleAuth = new GoogleAuthProvider();
+  const googleLogin = async () => {
+    const result = await signInWithPopup(auth, googleAuth);
+  };
+  // useEffect(() => {
+  //   console.log(user);
+  // }, [user]);
+
   return (
     <div>
       <div>
-        <button type="button" onClick={signInWithPopup}>
+        <button type="button" onClick={googleLogin} name="google ">
           Sign in With Google
         </button>
+        {/* {user ? 'Welcome ,' + user.displayName : ''} */}
         <form>
           <div>
             <label htmlFor="username">
