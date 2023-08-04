@@ -1,0 +1,137 @@
+@font-face {
+  font-family: 'Outfit';
+  src: url(../fonts/Outfit-Medium.ttf);
+}
+
+@font-face {
+  font-family: 'Outfit-Bold';
+  src: url(../fonts/Outfit-Bold.ttf);
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url(../fonts/Roboto-Medium.ttf);
+}
+
+body {
+  background-color: #f6fff8;
+  height: 100%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+.outer-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* gap: 60px; */
+  border: 1px solid black;
+  background: #fff;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.inner-box {
+  display: flex;
+  padding: 40px 50px;
+  flex-direction: column;
+  align-items: center;
+  gap: 23px;
+  border-radius: 10px;
+  background: #eaf4f4;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+h1 {
+  color: #006d77;
+  text-align: center;
+  font-family: 'Outfit', sans-serif;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 27.5px;
+}
+/* 
+.username {
+
+} */
+.username-font {
+  display: flex;
+  flex-direction: column;
+  color: #000;
+  font-family: Roboto;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.username-box {
+  width: 345px;
+  height: 52px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.google {
+  display: flex;
+  width: 345px;
+  height: 54px;
+  padding: 0px 47.5px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow:
+    0px 2px 3px 0px rgba(0, 0, 0, 0.17),
+    0px 0px 3px 0px rgba(0, 0, 0, 0.08);
+}
+
+.google-font {
+  color: rgba(0, 0, 0, 0.54);
+  font-family: 'Roboto';
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.login-message {
+  color: #000;
+  font-family: 'Outfit';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.login-button {
+  background: transparent;
+  padding: 5px;
+  color: #000;
+  font-family: 'Outfit-Bold';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700px;
+  line-height: normal;
+}
+
+.login-button:hover {
+  background: transparent;
+  cursor: default;
+}
+/* Laptops */
+@media (992px < width <= 1200px) {
+}
+/* Medium Devices */
+@media (768px < width <= 992px) {
+}
+/* small devices */
+@media (width >= 768px) {
+  .body {
+    height: 75%;
+  }
+  .inner-box {
+    padding: 20px 25px;
+  }
+}

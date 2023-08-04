@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 // import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../services/firebase';
+import './signup.css';
+import googlelogo from '../assets/google_logo.svg';
 
 function Signup() {
   const [username, setUsername] = useState('');
@@ -15,17 +17,15 @@ function Signup() {
   // }, [user]);
 
   return (
-    <div>
-      <div>
-        <button type="button" onClick={googleLogin} name="google ">
-          Sign in With Google
-        </button>
-        {/* {user ? 'Welcome ,' + user.displayName : ''} */}
+    <div className="outer-box">
+      <h1>Sign up to Aimer!</h1>
+      <div className="inner-box">
         <form>
-          <div>
-            <label htmlFor="username">
+          <div className="username">
+            <label htmlFor="username-name" className="username-font">
               Username
               <input
+                className="username-box"
                 type="username"
                 label="Create Username"
                 value={username}
@@ -36,6 +36,19 @@ function Signup() {
             </label>
           </div>
         </form>
+        <div>
+          <button type="button" onClick={googleLogin} className="google">
+            <div className="google-font">
+              <img src={googlelogo} alt="google logo" /> Sign Up With Google
+            </div>
+          </button>
+        </div>
+        <p className="login-message">
+          Already have an account?
+          <button type="button" className="login-button">
+            Login
+          </button>
+        </p>
       </div>
     </div>
   );
