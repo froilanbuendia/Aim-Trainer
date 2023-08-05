@@ -1,20 +1,28 @@
 import React, { useState } from 'react';
-import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
+import { signInWithPopup } from 'firebase/auth';
 // import { useAuthState } from 'react-firebase-hooks/auth';
-import { auth } from '../services/firebase';
+// import { auth } from '../services/firebase';
 import './signup.css';
 import googlelogo from '../assets/google_logo.svg';
+// import app from '../services/firebase';
+// import Home from './Home';
+import { auth, provider } from '../services/firebase';
+import createUser from '../api/user';
 
 function Signup() {
-  const [username, setUsername] = useState('');
-  // const [user, setUser] = useAuthState(auth);
-  const googleAuth = new GoogleAuthProvider();
+  const [userName, setUserName] = useState('');
+  const navigate = useNavigate();
+
   const googleLogin = async () => {
-    const result = await signInWithPopup(auth, googleAuth);
+    const res = await signInWithPopup(auth, provider).then((data) => {
+      return createUser(data.user.displayName, userName, data.user.email);
+    });
+    console.log(res.ok);
+    if (res.ok === true) {
+      navigate('/');
+    }
   };
-  // useEffect(() => {
-  //   console.log(user);
-  // }, [user]);
 
   return (
     <div className="outer-box">
@@ -28,8 +36,8 @@ function Signup() {
                 className="username-box"
                 type="username"
                 label="Create Username"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
+                value={userName}
+                onChange={(e) => setUserName(e.target.value)}
                 required
                 placeholder="Username"
               />

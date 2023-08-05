@@ -8,7 +8,7 @@ const DB_CONFIG = {
   password: DB_PWD,
   port: DB_PORT,
 };
-
+console.log(DB_USER);
 const pool = new Pool(DB_CONFIG);
 
 const client = new Client(DB_CONFIG);

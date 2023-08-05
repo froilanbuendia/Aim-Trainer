@@ -11,6 +11,7 @@ const getOneUser = () => {
 };
 
 const createNewUser = async (newUser) => {
+  console.log('here', newUser);
   const createdUser = {
     id: uuid(),
     ...newUser,
