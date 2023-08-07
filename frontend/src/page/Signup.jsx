@@ -13,27 +13,30 @@ import createUser from '../api/user';
 function Signup() {
   const [userName, setUserName] = useState('');
   const navigate = useNavigate();
+  const [username, usernameToggle] = useState(false);
 
   const googleLogin = async () => {
     const res = await signInWithPopup(auth, provider).then((data) => {
       return createUser(data.user.displayName, userName, data.user.email);
     });
-    console.log(res.ok);
-    if (res.ok === true) {
+    console.log(res.data, res.error);
+    if (res.data !== false) {
       navigate('/');
+    } else {
+      usernameToggle(!username);
     }
   };
 
   return (
-    <div className="outer-box">
-      <h1>Sign up to Aimer!</h1>
+    <div className={username ? '' : 'outer-box'}>
+      <h1>Sign up to Aim!</h1>
       <div className="inner-box">
         <form>
           <div className="username">
             <label htmlFor="username-name" className="username-font">
               Username
               <input
-                className="username-box"
+                className={username ? 'username-box-used' : 'username-box'}
                 type="username"
                 label="Create Username"
                 value={userName}
@@ -42,6 +45,9 @@ function Signup() {
                 placeholder="Username"
               />
             </label>
+            <p className={username ? 'username-used' : 'username-not-used'}>
+              Username already taken!
+            </p>
           </div>
         </form>
         <div>
@@ -53,9 +59,9 @@ function Signup() {
         </div>
         <p className="login-message">
           Already have an account?
-          <button type="button" className="login-button">
+          <a href="/login" className="login-button">
             Login
-          </button>
+          </a>
         </p>
       </div>
     </div>

@@ -13,11 +13,21 @@ const createNewUser = async (newUser) => {
     `insert into users(id, name, username, email, highest_score) values($1, $2, $3, $4, $5) returning *`,
     values,
   );
-
+  // console.log('Result:', res.rows[0]);
   return res.rows[0];
 };
 
+const checkNewUser = async (newUser) => {
+  const checkUser = await pool.query(
+    `select username from users where username = '${newUser.username}'`,
+  );
+  // console.log('checking username query', checkUser);
+  if (checkUser.rows.length >= 1) {
+    return true;
+  }
+};
 module.exports = {
   getAllUsers,
   createNewUser,
+  checkNewUser,
 };
