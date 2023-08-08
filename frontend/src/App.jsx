@@ -1,9 +1,9 @@
 import React from 'react';
+import * as ReactDOM from 'react-dom';
 // import { ReactDOM } from 'react-dom/client';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Home from './page/Home';
 // import Login from './page/Login';
-// import { } from 'react-router-dom';
 import Signup from './page/Signup';
 // import { initializeFirebase } from './services/firebase';
 
@@ -14,7 +14,7 @@ function App() {
       <div>
         <section>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Navigate to="/signup" />} />
             <Route path="/signup" element={<Signup />} />
           </Routes>
         </section>
@@ -22,6 +22,6 @@ function App() {
     </Router>
   );
 }
-// const root = ReactDOM.createRoot(document.getElementById('root'));
-// root.render(<Signup />);
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<Signup />);
 export default App;
