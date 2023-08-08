@@ -19,7 +19,7 @@ function Signup() {
     const res = await signInWithPopup(auth, provider).then((data) => {
       return createUser(data.user.displayName, userName, data.user.email);
     });
-    console.log(res.data, res.error);
+    // console.log(res.data, res.error);
     if (res.data !== false) {
       navigate('/');
     } else {

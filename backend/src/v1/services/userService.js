@@ -6,10 +6,6 @@ const getAllUsers = async () => {
   return await User.getAllUsers();
 };
 
-const getOneUser = () => {
-  return;
-};
-
 const createNewUser = async (newUser) => {
   // console.log('here', newUser);
   const createdUser = {
@@ -24,21 +20,11 @@ const createNewUser = async (newUser) => {
   }
   const newCreatedUser = await User.createNewUser(createdUser);
   // console.log(newCreatedUser);
-  console.log('username not used');
+  // console.log('username not used');
   return newCreatedUser;
-};
-const updateOneUser = () => {
-  return;
-};
-
-const deleteOneUser = () => {
-  return;
 };
 
 module.exports = {
   getAllUsers,
-  getOneUser,
   createNewUser,
-  updateOneUser,
-  deleteOneUser,
 };
