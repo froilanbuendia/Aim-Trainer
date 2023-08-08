@@ -51,7 +51,7 @@ function Signup() {
           </div>
         </form>
         <div>
-          <button type="button" onClick={googleLogin} className="google">
+          <button type="button" disabled={!userName} onClick={googleLogin} className="google">
             <div className="google-font">
               <img src={googlelogo} alt="google logo" /> Sign Up With Google
             </div>

@@ -17,3 +17,5 @@ app.use('/api/v1/users', v1UserRouter);
 app.listen(PORT, () => {
   console.log(`API is listening on port ${PORT}`);
 });
+
+module.exports = app;
