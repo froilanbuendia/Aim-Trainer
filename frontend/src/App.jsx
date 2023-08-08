@@ -2,10 +2,8 @@ import React from 'react';
 import * as ReactDOM from 'react-dom';
 // import { ReactDOM } from 'react-dom/client';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import Home from './page/Home';
 // import Login from './page/Login';
 import Signup from './page/Signup';
-// import { initializeFirebase } from './services/firebase';
 
 function App() {
   // initializeFirebase();
