@@ -13,7 +13,7 @@ const createNewUser = async (newUser) => {
   };
   const doesUsernameExist = await User.doesUsernameExist(createdUser);
   if (doesUsernameExist) {
-    return false;
+    return 'Username already exists';
   }
   const newCreatedUser = await User.createNewUser(createdUser);
   return newCreatedUser;

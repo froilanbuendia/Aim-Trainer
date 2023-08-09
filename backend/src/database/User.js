@@ -23,6 +23,7 @@ const doesUsernameExist = async (newUser) => {
   if (checkUser.rows.length >= 1) {
     return true;
   }
+  return false;
 };
 module.exports = {
   getAllUsers,
