@@ -15,7 +15,6 @@ function Signup() {
     const res = await signInWithPopup(auth, provider).then((data) => {
       return createUser(data.user.displayName, userName, data.user.email);
     });
-    console.log('Data:', res.data);
     if (res.data !== false) {
       navigate('/');
     } else {
