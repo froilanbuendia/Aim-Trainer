@@ -15,6 +15,7 @@ function Signup() {
     const res = await signInWithPopup(auth, provider).then((data) => {
       return createUser(data.user.displayName, userName, data.user.email);
     });
+    console.log('Data:', res.data);
     if (res.data !== false) {
       navigate('/');
     } else {
@@ -24,7 +25,7 @@ function Signup() {
 
   return (
     <div className={username ? '' : 'outer-box'}>
-      <h1>Sign up to Aim!</h1>
+      <h1>Sign up to Aimer!</h1>
       <div className="inner-box">
         <form>
           <div className="username">
