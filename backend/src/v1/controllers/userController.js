@@ -8,9 +8,7 @@ const getAllUsers = async (req, res) => {
 };
 
 const createNewUser = async (req, res) => {
-  // console.log('request:', req);
   const createdUser = await userService.createNewUser(req.body);
-  console.log('data controller ', res);
   if (!res) {
     res.send({ data: null, error: 'Username is taken' });
   }

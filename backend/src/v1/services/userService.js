@@ -7,20 +7,15 @@ const getAllUsers = async () => {
 };
 
 const createNewUser = async (newUser) => {
-  // console.log('here', newUser);
   const createdUser = {
     id: uuid(),
     ...newUser,
   };
-  console.log('Services:', newUser);
-  const newCheckedUser = await User.checkNewUser(createdUser);
-  if (newCheckedUser) {
-    console.log('username already used');
+  const doesUsernameExist = await User.doesUsernameExist(createdUser);
+  if (doesUsernameExist) {
     return false;
   }
   const newCreatedUser = await User.createNewUser(createdUser);
-  // console.log(newCreatedUser);
-  // console.log('username not used');
   return newCreatedUser;
 };
 

@@ -1,12 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { signInWithPopup } from 'firebase/auth';
-// import { useAuthState } from 'react-firebase-hooks/auth';
-// import { auth } from '../services/firebase';
 import './signup.css';
 import googlelogo from '../assets/google_logo.svg';
-// import app from '../services/firebase';
-// import Home from './Home';
 import { auth, provider } from '../services/firebase';
 import createUser from '../api/user';
 
@@ -19,7 +15,6 @@ function Signup() {
     const res = await signInWithPopup(auth, provider).then((data) => {
       return createUser(data.user.displayName, userName, data.user.email);
     });
-    // console.log(res.data, res.error);
     if (res.data !== false) {
       navigate('/');
     } else {

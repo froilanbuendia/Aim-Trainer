@@ -13,7 +13,6 @@ async function createUser(displayName, userName, displayEmail) {
       highest_score: 0,
     }),
   });
-  // console.log('result', res.json());
   return res.json();
 }
 export default createUser;
