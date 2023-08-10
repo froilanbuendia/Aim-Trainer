@@ -30,7 +30,7 @@ function Login() {
             <label htmlFor="username-name" className="username-font">
               Username
               <input
-                className={username ? 'username-box-used' : 'username-box'}
+                className={username ? 'username-box-not-used' : 'username-box'}
                 type="username"
                 label="Create Username"
                 value={userName}
@@ -39,8 +39,8 @@ function Login() {
                 placeholder="Username"
               />
             </label>
-            <p className={username ? 'username-used' : 'username-not-used'}>
-              Username doesn't exist!
+            <p className={username ? 'username-not-used' : 'username-not-used'}>
+              Username doesn&apos;t exist!
             </p>
           </div>
         </form>
@@ -52,7 +52,7 @@ function Login() {
           </button>
         </div>
         <p className="login-message">
-          Don't have an account?
+          Don&apos;t have an account?
           <a href="/signup" className="signup-button">
             Sign up for free
           </a>
