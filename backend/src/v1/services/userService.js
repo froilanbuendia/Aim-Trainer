@@ -6,31 +6,20 @@ const getAllUsers = async () => {
   return await User.getAllUsers();
 };
 
-const getOneUser = () => {
-  return;
-};
-
 const createNewUser = async (newUser) => {
   const createdUser = {
     id: uuid(),
     ...newUser,
   };
+  const doesUsernameExist = await User.doesUsernameExist(createdUser);
+  if (doesUsernameExist) {
+    return 'Username already exists';
+  }
   const newCreatedUser = await User.createNewUser(createdUser);
   return newCreatedUser;
 };
 
-const updateOneUser = () => {
-  return;
-};
-
-const deleteOneUser = () => {
-  return;
-};
-
 module.exports = {
   getAllUsers,
-  getOneUser,
   createNewUser,
-  updateOneUser,
-  deleteOneUser,
 };

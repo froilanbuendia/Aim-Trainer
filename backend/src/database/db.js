@@ -8,7 +8,6 @@ const DB_CONFIG = {
   password: DB_PWD,
   port: DB_PORT,
 };
-
 const pool = new Pool(DB_CONFIG);
 
 const client = new Client(DB_CONFIG);
