@@ -1,21 +1,20 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { signInWithPopup } from 'firebase/auth';
-import './signup.css';
+import './login.css';
 import googlelogo from '../assets/google_logo.svg';
 import { auth, provider } from '../services/firebase';
-import { createUser } from '../api/user';
+import { getUser } from '../api/user';
 
-function Signup() {
+function Login() {
   const [userName, setUserName] = useState('');
   const navigate = useNavigate();
   const [username, usernameToggle] = useState(false);
 
   const googleLogin = async () => {
-    const res = await signInWithPopup(auth, provider).then((data) => {
-      return createUser(data.user.displayName, userName, data.user.email);
-    });
-    if (res.data !== null) {
+    signInWithPopup(auth, provider);
+    const res = await getUser(userName);
+    if (res.error === 'Username exists') {
       navigate('/');
     } else {
       usernameToggle(!username);
@@ -23,8 +22,8 @@ function Signup() {
   };
 
   return (
-    <div className={username ? '' : 'outer-box'}>
-      <h1>Sign up to Aimer!</h1>
+    <div>
+      <h1>Log in to Aimer!</h1>
       <div className="inner-box">
         <form>
           <div className="username">
@@ -41,7 +40,7 @@ function Signup() {
               />
             </label>
             <p className={username ? 'username-used' : 'username-not-used'}>
-              Username already taken!
+              Username doesn't exist!
             </p>
           </div>
         </form>
@@ -53,9 +52,9 @@ function Signup() {
           </button>
         </div>
         <p className="login-message">
-          Already have an account?
-          <a href="/login" className="login-button">
-            Login
+          Don't have an account?
+          <a href="/signup" className="signup-button">
+            Sign up for free
           </a>
         </p>
       </div>
@@ -63,4 +62,4 @@ function Signup() {
   );
 }
 
-export default Signup;
+export default Login;

@@ -9,4 +9,6 @@ router.get('/', userController.getAllUsers);
 
 router.post('/', bodyParser.json(), userController.createNewUser);
 
+router.post('/:username', bodyParser.json(), userController.getUser);
+
 module.exports = router;

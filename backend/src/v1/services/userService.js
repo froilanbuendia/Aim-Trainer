@@ -6,6 +6,13 @@ const getAllUsers = async () => {
   return await User.getAllUsers();
 };
 
+const getUser = async (user) => {
+  const doesUsernameExist = await User.doesUsernameExist(user);
+  if (doesUsernameExist) {
+    return 'Username exists';
+  }
+  return "Username doesn't exist";
+};
 const createNewUser = async (newUser) => {
   const createdUser = {
     id: uuid(),
@@ -21,5 +28,6 @@ const createNewUser = async (newUser) => {
 
 module.exports = {
   getAllUsers,
+  getUser,
   createNewUser,
 };
