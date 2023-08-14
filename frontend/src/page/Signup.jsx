@@ -5,6 +5,7 @@ import './signup.css';
 import googlelogo from '../assets/google_logo.svg';
 import { auth, provider } from '../services/firebase';
 import { createUser } from '../api/user';
+import Form from '../components/Form';
 
 function Signup() {
   const [userName, setUserName] = useState('');
@@ -26,25 +27,12 @@ function Signup() {
     <div className={username ? '' : 'outer-box'}>
       <h1>Sign up to Aimer!</h1>
       <div className="inner-box">
-        <form>
-          <div className="username">
-            <label htmlFor="username-name" className="username-font">
-              Username
-              <input
-                className={username ? 'username-box-used' : 'username-box'}
-                type="username"
-                label="Create Username"
-                value={userName}
-                onChange={(e) => setUserName(e.target.value)}
-                required
-                placeholder="Username"
-              />
-            </label>
-            <p className={username ? 'username-used' : 'username-not-used'}>
-              Username already taken!
-            </p>
-          </div>
-        </form>
+        <Form
+          username={username}
+          setUserName={setUserName}
+          userNameSet={userName}
+          isLogin="false"
+        />
         <div>
           <button type="button" disabled={!userName} onClick={googleLogin} className="google">
             <div className="google-font">

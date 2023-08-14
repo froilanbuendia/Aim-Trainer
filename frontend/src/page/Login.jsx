@@ -5,6 +5,7 @@ import './login.css';
 import googlelogo from '../assets/google_logo.svg';
 import { auth, provider } from '../services/firebase';
 import { getUser } from '../api/user';
+import Form from '../components/Form';
 
 function Login() {
   const [userName, setUserName] = useState('');
@@ -14,7 +15,7 @@ function Login() {
   const googleLogin = async () => {
     signInWithPopup(auth, provider);
     const res = await getUser(userName);
-    if (res.error === 'Username exists') {
+    if (res.data === userName) {
       navigate('/');
     } else {
       usernameToggle(!username);
@@ -25,25 +26,8 @@ function Login() {
     <div>
       <h1>Log in to Aimer!</h1>
       <div className="inner-box">
-        <form>
-          <div className="username">
-            <label htmlFor="username-name" className="username-font">
-              Username
-              <input
-                className={username ? 'username-box-not-used' : 'username-box'}
-                type="username"
-                label="Create Username"
-                value={userName}
-                onChange={(e) => setUserName(e.target.value)}
-                required
-                placeholder="Username"
-              />
-            </label>
-            <p className={username ? 'username-not-used' : 'username-not-used'}>
-              Username doesn&apos;t exist!
-            </p>
-          </div>
-        </form>
+        <Form username={username} setUserName={setUserName} userNameSet={userName} isLogin="true" />
+
         <div>
           <button type="button" disabled={!userName} onClick={googleLogin} className="google">
             <div className="google-font">

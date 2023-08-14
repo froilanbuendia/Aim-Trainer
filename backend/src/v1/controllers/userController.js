@@ -8,8 +8,8 @@ const getAllUsers = async (req, res) => {
 };
 
 const getUser = async (req, res) => {
-  const user = await userService.getUser(req.body);
-  res.send({ data: null, error: user });
+  const userResult = await userService.getUser(req.query);
+  res.send({ data: userResult, error: null });
 };
 
 const createNewUser = async (req, res) => {

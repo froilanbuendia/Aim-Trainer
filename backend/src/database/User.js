@@ -17,18 +17,11 @@ const createNewUser = async (newUser) => {
 };
 
 const doesUsernameExist = async (newUser) => {
-  if (typeof newUser === 'object') {
-    const checkUserObject = await pool.query(
-      `select username from users where username = '${newUser.username}'`,
-    );
-    if (checkUserObject.rows.length >= 1) {
-      return true;
-    }
-  } else {
-    const checkUser = await pool.query(`select username from users where username = '${newUser}'`);
-    if (checkUser.rows.length >= 1) {
-      return true;
-    }
+  const checkUserObject = await pool.query(
+    `select username from users where username = '${newUser.username}'`,
+  );
+  if (checkUserObject.rows.length >= 1) {
+    return true;
   }
   return false;
 };

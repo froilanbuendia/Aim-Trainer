@@ -1,8 +1,7 @@
-const CREATE_USER_URL = 'http://localhost:8000/api/v1/users';
-const USER_URL = 'http://localhost:8000/api/v1/users/username';
+const USER_URL = 'http://localhost:8000/api/v1/users';
 
 export async function createUser(displayName, userName, displayEmail) {
-  const res = await fetch(CREATE_USER_URL, {
+  const res = await fetch(USER_URL, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -18,16 +17,14 @@ export async function createUser(displayName, userName, displayEmail) {
 }
 
 export async function getUser(userName) {
-  const res = await fetch(USER_URL, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
+  const res = await fetch(
+    USER_URL + '/user?' + new URLSearchParams({ username: userName }).toString(),
+    {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
     },
-    body: JSON.stringify({
-      username: userName,
-    }),
-  });
+  );
   return res.json();
 }
-// function getUser()
-// export default (createUser, getUser);

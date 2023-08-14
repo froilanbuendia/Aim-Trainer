@@ -5,10 +5,10 @@ const userController = require('../controllers/userController');
 
 const router = express.Router();
 
-router.get('/', userController.getAllUsers);
+router.get('/', bodyParser.json(), userController.getAllUsers);
+
+router.get('/user?', bodyParser.json(), userController.getUser);
 
 router.post('/', bodyParser.json(), userController.createNewUser);
-
-router.post('/:username', bodyParser.json(), userController.getUser);
 
 module.exports = router;

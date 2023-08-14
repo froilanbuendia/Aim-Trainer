@@ -9,7 +9,7 @@ const getAllUsers = async () => {
 const getUser = async (user) => {
   const doesUsernameExist = await User.doesUsernameExist(user);
   if (doesUsernameExist) {
-    return 'Username exists';
+    return user.username;
   }
   return "Username doesn't exist";
 };
