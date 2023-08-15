@@ -36,7 +36,7 @@ function Form({ username, setUserName, userName, isLogin }) {
 Form.propTypes = {
   username: PropTypes.bool.isRequired,
   setUserName: PropTypes.func.isRequired,
-  userName: PropTypes.string,
+  userName: null,
   isLogin: PropTypes.bool.isRequired,
 };
 

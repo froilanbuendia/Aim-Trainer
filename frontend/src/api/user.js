@@ -18,7 +18,7 @@ export async function createUser(displayName, userName, displayEmail) {
 
 export async function getUser(userName) {
   const res = await fetch(
-    USER_URL + '/user?' + new URLSearchParams({ username: userName }).toString(),
+    `${USER_URL}/user?${new URLSearchParams({ username: userName }).toString()}`,
     {
       method: 'GET',
       headers: {
