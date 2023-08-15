@@ -26,7 +26,7 @@ function Login() {
     <div>
       <h1>Log in to Aimer!</h1>
       <div className="inner-box">
-        <Form username={username} setUserName={setUserName} userNameSet={userName} isLogin="true" />
+        <Form username={username} setUserName={setUserName} userNameSet={userName} isLogin={true} />
 
         <div>
           <button type="button" disabled={!userName} onClick={googleLogin} className="google">

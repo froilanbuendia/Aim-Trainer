@@ -31,7 +31,7 @@ function Signup() {
           username={username}
           setUserName={setUserName}
           userNameSet={userName}
-          isLogin="false"
+          isLogin={false}
         />
         <div>
           <button type="button" disabled={!userName} onClick={googleLogin} className="google">

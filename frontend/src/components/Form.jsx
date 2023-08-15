@@ -1,5 +1,6 @@
 import React from 'react';
 import './form.css';
+import PropTypes from 'prop-types';
 
 function Form({ username, setUserName, userName, isLogin }) {
   return (
@@ -18,7 +19,7 @@ function Form({ username, setUserName, userName, isLogin }) {
           />
         </label>
 
-        {isLogin === 'true' ? (
+        {isLogin ? (
           <p className={username ? 'username-used' : 'username-not-used'}>
             Username doesn&apos;t exist!
           </p>
@@ -31,5 +32,12 @@ function Form({ username, setUserName, userName, isLogin }) {
     </form>
   );
 }
+
+Form.propTypes = {
+  username: PropTypes.bool.isRequired,
+  setUserName: PropTypes.func.isRequired,
+  userName: PropTypes.string,
+  isLogin: PropTypes.bool.isRequired,
+};
 
 export default Form;
