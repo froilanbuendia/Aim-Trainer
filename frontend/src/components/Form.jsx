@@ -3,6 +3,12 @@ import './form.css';
 import PropTypes from 'prop-types';
 
 function Form({ username, setUserName, userName, isLogin }) {
+  const loginError = (
+    <p className={username ? 'username-used' : 'username-not-used'}>Username doesn&apos;t exist!</p>
+  );
+  const SignupError = (
+    <p className={username ? 'username-used' : 'username-not-used'}>Username already taken!</p>
+  );
   return (
     <form>
       <div className="username">
@@ -18,16 +24,7 @@ function Form({ username, setUserName, userName, isLogin }) {
             placeholder="Username"
           />
         </label>
-
-        {isLogin ? (
-          <p className={username ? 'username-used' : 'username-not-used'}>
-            Username doesn&apos;t exist!
-          </p>
-        ) : (
-          <p className={username ? 'username-used' : 'username-not-used'}>
-            Username already taken!
-          </p>
-        )}
+        {isLogin ? loginError : SignupError}
       </div>
     </form>
   );
@@ -36,7 +33,7 @@ function Form({ username, setUserName, userName, isLogin }) {
 Form.propTypes = {
   username: PropTypes.bool.isRequired,
   setUserName: PropTypes.func.isRequired,
-  userName: null,
+  userName: PropTypes.func,
   isLogin: PropTypes.bool.isRequired,
 };
 

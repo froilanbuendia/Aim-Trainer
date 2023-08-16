@@ -9,7 +9,7 @@ const getAllUsers = async () => {
 const getUser = async (user) => {
   const doesUsernameExist = await User.doesUsernameExist(user);
   if (doesUsernameExist) {
-    return user.username;
+    return user;
   }
   return "Username doesn't exist";
 };
@@ -18,7 +18,7 @@ const createNewUser = async (newUser) => {
     id: uuid(),
     ...newUser,
   };
-  const doesUsernameExist = await User.doesUsernameExist(createdUser);
+  const doesUsernameExist = await User.doesUsernameExist(createdUser.username);
   if (doesUsernameExist) {
     return 'Username already exists';
   }

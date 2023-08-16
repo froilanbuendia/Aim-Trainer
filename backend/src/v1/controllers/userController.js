@@ -8,7 +8,7 @@ const getAllUsers = async (req, res) => {
 };
 
 const getUser = async (req, res) => {
-  const userResult = await userService.getUser(req.query);
+  const userResult = await userService.getUser(req.params.username);
   res.send({ data: userResult, error: null });
 };
 

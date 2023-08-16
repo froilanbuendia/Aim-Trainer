@@ -17,14 +17,11 @@ export async function createUser(displayName, userName, displayEmail) {
 }
 
 export async function getUser(userName) {
-  const res = await fetch(
-    `${USER_URL}/user?${new URLSearchParams({ username: userName }).toString()}`,
-    {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+  const res = await fetch(`${USER_URL}/user/${userName}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
     },
-  );
+  });
   return res.json();
 }
