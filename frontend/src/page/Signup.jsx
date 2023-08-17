@@ -8,18 +8,18 @@ import { createUser } from '../api/user';
 import Form from '../components/Form';
 
 function Signup() {
-  const [userName, setUserName] = useState('');
+  const [username, setUsername] = useState('');
   const navigate = useNavigate();
-  const [username, usernameToggle] = useState(false);
+  const [hasError, setHasError] = useState(false);
 
   const googleLogin = async () => {
     const res = await signInWithPopup(auth, provider).then((data) => {
-      return createUser(data.user.displayName, userName, data.user.email);
+      return createUser(data.user.displayName, username, data.user.email);
     });
     if (res.data !== null) {
       navigate('/');
     } else {
-      usernameToggle(!username);
+      setHasError(!hasError);
     }
   };
 
@@ -27,14 +27,9 @@ function Signup() {
     <div className={username ? '' : 'outer-box'}>
       <h1>Sign up to Aimer!</h1>
       <div className="inner-box">
-        <Form
-          username={username}
-          setUserName={setUserName}
-          userNameSet={userName}
-          isLogin={false}
-        />
+        <Form hasError={hasError} setUsername={setUsername} username={username} isLogin={false} />
         <div>
-          <button type="button" disabled={!userName} onClick={googleLogin} className="google">
+          <button type="button" disabled={!username} onClick={googleLogin} className="google">
             <div className="google-font">
               <img src={googlelogo} alt="google logo" /> Sign Up With Google
             </div>

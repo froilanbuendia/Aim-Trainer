@@ -2,12 +2,12 @@ import React from 'react';
 import './form.css';
 import PropTypes from 'prop-types';
 
-function Form({ username, setUserName, userName, isLogin }) {
+function Form({ hasError, setUsername, username, isLogin }) {
   const loginError = (
-    <p className={username ? 'username-used' : 'username-not-used'}>Username doesn&apos;t exist!</p>
+    <p className={hasError ? 'username-used' : 'username-not-used'}>Username doesn&apos;t exist!</p>
   );
   const SignupError = (
-    <p className={username ? 'username-used' : 'username-not-used'}>Username already taken!</p>
+    <p className={hasError ? 'username-used' : 'username-not-used'}>Username already taken!</p>
   );
   return (
     <form>
@@ -15,11 +15,11 @@ function Form({ username, setUserName, userName, isLogin }) {
         <label htmlFor="username-name" className="username-font">
           Username
           <input
-            className={username ? 'username-box-used' : 'username-box'}
+            className={hasError ? 'username-box-used' : 'username-box'}
             type="username"
             label="Create Username"
-            value={userName}
-            onChange={(e) => setUserName(e.target.value)}
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
             required
             placeholder="Username"
           />
@@ -31,9 +31,9 @@ function Form({ username, setUserName, userName, isLogin }) {
 }
 
 Form.propTypes = {
-  username: PropTypes.bool.isRequired,
-  setUserName: PropTypes.func.isRequired,
-  userName: PropTypes.func,
+  hasError: PropTypes.bool.isRequired,
+  setUsername: PropTypes.func.isRequired,
+  username: PropTypes.func,
   isLogin: PropTypes.bool.isRequired,
 };
 

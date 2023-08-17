@@ -8,27 +8,28 @@ import { getUser } from '../api/user';
 import Form from '../components/Form';
 
 function Login() {
-  const [userName, setUserName] = useState('');
+  const [username, setUsername] = useState('');
   const navigate = useNavigate();
-  const [username, hasError] = useState(false);
+  const [hasError, setHasError] = useState(false);
+
   const googleLogin = async () => {
     signInWithPopup(auth, provider);
-    const res = await getUser(userName);
-    if (res.data === userName) {
+    const res = await getUser(username);
+    if (res.data === username) {
       navigate('/');
     } else {
-      hasError(!username);
+      setHasError(!hasError);
     }
   };
   return (
     <div>
       <h1>Log in to Aimer!</h1>
       <div className="inner-box">
-        <Form username={username} setUserName={setUserName} userNameSet={userName} isLogin />
+        <Form hasError={hasError} setUsername={setUsername} userNameSet={username} isLogin />
         <div>
-          <button type="button" disabled={!userName} onClick={googleLogin} className="google">
+          <button type="button" disabled={!username} onClick={googleLogin} className="google">
             <div className="google-font">
-              <img src={googlelogo} alt="google logo" /> Sign Up With Google
+              <img src={googlelogo} alt="google logo" /> Sign In With Google
             </div>
           </button>
         </div>
