@@ -4,19 +4,18 @@ import { signInWithPopup } from 'firebase/auth';
 import './auth.css';
 import googlelogo from '../assets/google_logo.svg';
 import { auth, provider } from '../services/firebase';
-import { createUser } from '../api/user';
+import { getUser } from '../api/user';
 import Form from '../components/Form';
 
-function Signup() {
+function Login() {
   const [username, setUsername] = useState('');
   const navigate = useNavigate();
   const [hasError, setHasError] = useState(false);
 
   const googleLogin = async () => {
-    const res = await signInWithPopup(auth, provider).then((data) => {
-      return createUser(data.user.displayName, username, data.user.email);
-    });
-    if (res.data !== null) {
+    signInWithPopup(auth, provider);
+    const res = await getUser(username);
+    if (res.data.username === username) {
       navigate('/');
       setHasError(false);
     } else {
@@ -25,21 +24,21 @@ function Signup() {
   };
 
   return (
-    <div className={username ? '' : 'outer-box'}>
-      <h1>Sign up to Aimer!</h1>
+    <div>
+      <h1>Log in to Aimer!</h1>
       <div className="inner-box">
-        <Form hasError={hasError} setUsername={setUsername} username={username} isLogin={false} />
+        <Form hasError={hasError} setUsername={setUsername} userNameSet={username} isLogin />
         <div>
           <button type="button" disabled={!username} onClick={googleLogin} className="google">
             <div className="google-font">
-              <img src={googlelogo} alt="google logo" /> Sign Up With Google
+              <img src={googlelogo} alt="google logo" /> Sign In With Google
             </div>
           </button>
         </div>
         <p className="login-message">
-          Already have an account?
-          <a href="/login" className="login-button">
-            Login
+          Don&apos;t have an account?
+          <a href="/signup" className="signup-button">
+            Sign up for free
           </a>
         </p>
       </div>
@@ -47,4 +46,4 @@ function Signup() {
   );
 }
 
-export default Signup;
+export default Login;

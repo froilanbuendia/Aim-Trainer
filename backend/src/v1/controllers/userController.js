@@ -7,6 +7,11 @@ const getAllUsers = async (req, res) => {
   res.send({ data: allUsers, error: null });
 };
 
+const getUser = async (req, res) => {
+  const userResult = await userService.getUser(req.params.username);
+  res.send({ data: userResult, error: null });
+};
+
 const createNewUser = async (req, res) => {
   const createdUserResult = await userService.createNewUser(req.body);
   if (typeof createdUserResult === 'string') {
@@ -18,5 +23,6 @@ const createNewUser = async (req, res) => {
 
 module.exports = {
   getAllUsers,
+  getUser,
   createNewUser,
 };
