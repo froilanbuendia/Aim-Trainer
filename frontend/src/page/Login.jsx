@@ -15,7 +15,7 @@ function Login() {
   const googleLogin = async () => {
     signInWithPopup(auth, provider);
     const res = await getUser(username);
-    if (res.data === username) {
+    if (res.data.username === username) {
       navigate('/');
       setHasError(false);
     } else {

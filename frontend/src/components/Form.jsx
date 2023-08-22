@@ -3,12 +3,12 @@ import './form.css';
 import PropTypes from 'prop-types';
 
 function Form({ hasError, setUsername, username, isLogin }) {
-  const LoginError = (
-    <p className={hasError ? 'username-used' : 'username-not-used'}>Username doesn&apos;t exist!</p>
+  const ErrorMessage = (
+    <p className={hasError ? 'username-used' : 'username-not-used'}>
+      {isLogin ? "Username doesn't exist!" : 'Username already taken!'}
+    </p>
   );
-  const SignupError = (
-    <p className={hasError ? 'username-used' : 'username-not-used'}>Username already taken!</p>
-  );
+
   return (
     <form>
       <div className="username">
@@ -24,7 +24,7 @@ function Form({ hasError, setUsername, username, isLogin }) {
             placeholder="Username"
           />
         </label>
-        {isLogin ? LoginError : SignupError}
+        {ErrorMessage}
       </div>
     </form>
   );

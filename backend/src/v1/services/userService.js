@@ -6,10 +6,10 @@ const getAllUsers = async () => {
   return await User.getAllUsers();
 };
 
-const getUsername = async (username => {
+const getUser = async (username) => {
   const doesUsernameExist = await User.doesUsernameExist(username);
   if (doesUsernameExist) {
-    return username;
+    return await User.getUser(username);
   }
   return "Username doesn't exist";
 };
@@ -28,6 +28,6 @@ const createNewUser = async (newUser) => {
 
 module.exports = {
   getAllUsers,
-  getUsername,
+  getUser,
   createNewUser,
 };

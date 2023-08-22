@@ -18,8 +18,9 @@ function Signup() {
     });
     if (res.data !== null) {
       navigate('/');
+      setHasError(false);
     } else {
-      setHasError(!hasError);
+      setHasError(true);
     }
   };
 
