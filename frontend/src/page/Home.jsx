@@ -5,6 +5,7 @@ import './home.css';
 function Home() {
   return (
     <div>
+      <div>Home</div>
       <div className="play-area">
         <div className="upper-play-area">
           <div className="time-hits">
