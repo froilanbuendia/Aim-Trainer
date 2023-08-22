@@ -16,9 +16,9 @@ const createNewUser = async (newUser) => {
   return res.rows[0];
 };
 
-const doesUsernameExist = async (newUser) => {
+const doesUsernameExist = async (username) => {
   const checkUserObject = await pool.query(
-    `select username from users where username = '${newUser}'`,
+    `select username from users where username = '${username}'`,
   );
   if (checkUserObject.rows.length >= 1) {
     return true;
