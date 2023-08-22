@@ -4,7 +4,12 @@ import Navbar from '../components/navbar';
 function Home() {
   return (
     <div>
-      <Navbar />
+      <div>
+        <Navbar />
+      </div>
+      <div>
+        <h1>Home</h1>
+      </div>
     </div>
   );
 }
