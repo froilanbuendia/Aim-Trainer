@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { signInWithPopup } from 'firebase/auth';
-import './loginsignup.css';
+import './auth.css';
 import googlelogo from '../assets/google_logo.svg';
 import { auth, provider } from '../services/firebase';
 import { createUser } from '../api/user';

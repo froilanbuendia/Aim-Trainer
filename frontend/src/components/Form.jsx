@@ -3,7 +3,7 @@ import './form.css';
 import PropTypes from 'prop-types';
 
 function Form({ hasError, setUsername, username, isLogin }) {
-  const loginError = (
+  const LoginError = (
     <p className={hasError ? 'username-used' : 'username-not-used'}>Username doesn&apos;t exist!</p>
   );
   const SignupError = (
@@ -24,7 +24,7 @@ function Form({ hasError, setUsername, username, isLogin }) {
             placeholder="Username"
           />
         </label>
-        {isLogin ? loginError : SignupError}
+        {isLogin ? LoginError : SignupError}
       </div>
     </form>
   );

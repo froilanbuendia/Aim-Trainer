@@ -108,7 +108,20 @@ h1 {
   line-height: normal;
 }
 
+.signup-button {
+  padding: 5px;
+  color: #000;
+  font-family: 'Outfit-Bold';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700px;
+  line-height: normal;
+}
+
 .login-button:hover {
+  color: lightseagreen;
+}
+.signup-button:hover {
   color: lightseagreen;
 }
 /* Laptops */

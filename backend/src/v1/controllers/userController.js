@@ -7,8 +7,8 @@ const getAllUsers = async (req, res) => {
   res.send({ data: allUsers, error: null });
 };
 
-const getUser = async (req, res) => {
-  const userResult = await userService.getUser(req.params.username);
+const getUsernameString = async (req, res) => {
+  const userResult = await userService.getUsernameString(req.params.username);
   res.send({ data: userResult, error: null });
 };
 
@@ -23,6 +23,6 @@ const createNewUser = async (req, res) => {
 
 module.exports = {
   getAllUsers,
-  getUser,
+  getUsernameString,
   createNewUser,
 };

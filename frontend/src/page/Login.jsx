@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { signInWithPopup } from 'firebase/auth';
-import './loginsignup.css';
+import './auth.css';
 import googlelogo from '../assets/google_logo.svg';
 import { auth, provider } from '../services/firebase';
 import { getUser } from '../api/user';
@@ -17,10 +17,12 @@ function Login() {
     const res = await getUser(username);
     if (res.data === username) {
       navigate('/');
+      setHasError(false);
     } else {
-      setHasError(!hasError);
+      setHasError(true);
     }
   };
+
   return (
     <div>
       <h1>Log in to Aimer!</h1>

@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.get('/', bodyParser.json(), userController.getAllUsers);
 
-router.get('/user/:username', bodyParser.json(), userController.getUser);
+router.get('/user/:username', bodyParser.json(), userController.getUsernameString);
 
 router.post('/', bodyParser.json(), userController.createNewUser);
 
