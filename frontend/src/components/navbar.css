@@ -1,0 +1,43 @@
+@font-face {
+  font-family: 'Outfit-Regular';
+  src: url('../fonts/Outfit-Regular.ttf');
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 1062px;
+  height: 50px;
+  background: #006d77;
+}
+
+.aimer-text {
+  color: #edf2f4;
+  font-family: 'Outfit-Regular';
+  font-size: 32px;
+  padding-left: 10px;
+}
+
+.sun-login {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+.sun {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  padding-right: 5px;
+}
+.login-text {
+  color: #edf2f4;
+  font-family: 'Outfit-Regular';
+  font-size: 20px;
+  padding-right: 20px;
+  padding-bottom: 5px;
+}
+
+.login-text:hover {
+  color: lightseagreen;
+}

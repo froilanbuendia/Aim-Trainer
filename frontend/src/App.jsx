@@ -4,7 +4,6 @@ import Home from './page/Home';
 import Signup from './page/Signup';
 
 function App() {
-  // initializeFirebase();
   return (
     <Router>
       <Routes>
