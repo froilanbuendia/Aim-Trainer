@@ -19,12 +19,14 @@
 }
 
 body {
-  background-color: #f6fff8;
   height: 100%;
+  width: 100%;
+  background-color: #f6fff8;
   display: inline-flex;
   justify-content: center;
   align-items: center;
 }
+
 .outer-box {
   display: flex;
   flex-direction: column;

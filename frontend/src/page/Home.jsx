@@ -1,10 +1,15 @@
 import React from 'react';
+import Navbar from '../components/navbar';
 import hearts from '../assets/hearts.svg';
 import './home.css';
 
 function Home() {
   return (
     <div>
+      <div>
+        <Navbar />
+      </div>
+      <div>
       <div>Home</div>
       <div className="play-area">
         <div className="upper-play-area">
