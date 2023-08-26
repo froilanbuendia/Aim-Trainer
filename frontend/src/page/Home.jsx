@@ -10,18 +10,19 @@ function Home() {
         <Navbar />
       </div>
       <div>
-      <div>Home</div>
-      <div className="play-area">
-        <div className="upper-play-area">
-          <div className="time-hits">
-            <p className="time">Time:</p>
-            <p className="hits">Hits:</p>
+        <div>Home</div>
+        <div className="play-area">
+          <div className="upper-play-area">
+            <div className="time-hits">
+              <p className="time">Time:</p>
+              <p className="hits">Hits:</p>
+            </div>
+            <div className="hearts">
+              <img src={hearts} alt="lives" />
+            </div>
           </div>
-          <div className="hearts">
-            <img src={hearts} alt="lives" />
-          </div>
+          <div className="play-box">play Area</div>
         </div>
-        <div className="play-box">play Area</div>
       </div>
     </div>
   );
