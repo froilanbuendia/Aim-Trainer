@@ -1,0 +1,35 @@
+@font-face {
+  font-family: 'Outfit-Regular';
+  src: url('../fonts/Outfit-Regular.ttf');
+}
+
+.upper-play-area {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 100px;
+}
+.time-hits {
+  display: flex;
+  color: #1f1f1f;
+  font-family: 'Outfit-Regular';
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 27.5px;
+}
+.time {
+  padding-right: 75px;
+}
+
+.hearts {
+  width: 102px;
+  height: 16.12px;
+}
+
+.play-box {
+  width: 915px;
+  height: 600px;
+  background: #eaf4f4;
+  margin: auto;
+}
