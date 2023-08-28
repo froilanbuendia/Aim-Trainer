@@ -22,7 +22,6 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-console.log(app);
 
 export function initializeFirebase() {
   initializeApp(firebaseConfig);
