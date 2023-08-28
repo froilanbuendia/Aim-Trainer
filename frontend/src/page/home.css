@@ -3,9 +3,9 @@
   src: url('../fonts/Outfit-Regular.ttf');
 }
 
-/* h1 {
+h1 {
   display: none;
-} */
+}
 
 .upper-play-area {
   display: flex;
