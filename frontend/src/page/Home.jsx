@@ -1,5 +1,6 @@
 import React from 'react';
-import Navbar from '../components/navbar';
+import Navbar from '../components/Navbar';
+import Timer from '../components/Timer';
 import hearts from '../assets/hearts.svg';
 import './home.css';
 
@@ -14,7 +15,8 @@ function Home() {
         <div className="play-area">
           <div className="upper-play-area">
             <div className="time-hits">
-              <p className="time">Time:</p>
+              {/* <p className="time">Time:</p> */}
+              <Timer />
               <p className="hits">Hits:</p>
             </div>
             <div className="hearts">

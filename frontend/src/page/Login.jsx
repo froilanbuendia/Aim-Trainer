@@ -12,6 +12,8 @@ function Login() {
   const navigate = useNavigate();
   const [hasError, setHasError] = useState(false);
 
+  const user = auth.AuthImpl;
+  console.log(user);
   const googleLogin = async () => {
     signInWithPopup(auth, provider);
     const res = await getUser(username);
