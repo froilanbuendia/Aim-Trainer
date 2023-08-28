@@ -15,7 +15,6 @@ function Home() {
         <div className="play-area">
           <div className="upper-play-area">
             <div className="time-hits">
-              {/* <p className="time">Time:</p> */}
               <Timer />
               <p className="hits">Hits:</p>
             </div>

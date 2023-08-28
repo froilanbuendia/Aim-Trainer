@@ -23,8 +23,6 @@ function Timer() {
         .slice(0, -1),
     );
     let seconds = Math.floor((time % minute) / second);
-    // let minutes = Math.floor(time / minute);
-    // if (minutes <= 10) minutes = '0' + minutes;
     if (seconds <= 10) seconds = '0' + seconds;
     if (milliseconds <= 10) milliseconds = '0' + milliseconds;
     return seconds + ':' + milliseconds;
