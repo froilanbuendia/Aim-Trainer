@@ -3,6 +3,10 @@
   src: url('../fonts/Outfit-Regular.ttf');
 }
 
+h1 {
+  display: none;
+}
+
 .upper-play-area {
   display: flex;
   justify-content: space-between;
@@ -18,10 +22,10 @@
   font-weight: 400;
   line-height: 27.5px;
 }
-.time {
-  padding-right: 75px;
+.hits {
+  position: fixed;
+  padding-left: 125px;
 }
-
 .hearts {
   width: 102px;
   height: 16.12px;
