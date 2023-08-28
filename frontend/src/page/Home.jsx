@@ -7,11 +7,11 @@ import './home.css';
 function Home() {
   return (
     <div>
+      <h1>Heading</h1>
       <div>
         <Navbar />
       </div>
       <div>
-        <div>Home</div>
         <div className="play-area">
           <div className="upper-play-area">
             <div className="time-hits">
