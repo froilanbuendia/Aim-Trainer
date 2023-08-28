@@ -1,9 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 
 function Timer() {
-  // use date to get current time
-  // get other date
-  // or use dayJS
   const [timer, setTimer] = useState(60000);
   const timerID = useRef();
 
@@ -23,9 +20,9 @@ function Timer() {
         .slice(0, -1),
     );
     let seconds = Math.floor((time % minute) / second);
-    if (seconds <= 10) seconds = '0' + seconds;
-    if (milliseconds <= 10) milliseconds = '0' + milliseconds;
-    return seconds + ':' + milliseconds;
+    if (seconds <= 10) seconds = `0${seconds}`;
+    if (milliseconds <= 10) milliseconds = `0${milliseconds}`;
+    return `${seconds}:${milliseconds}`;
   };
 
   return <p className="time">Time: {formatTime(timer)}</p>;

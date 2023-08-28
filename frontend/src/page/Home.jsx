@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from '../components/Navbar';
+import Navbar from '../components/navbar';
 import Timer from '../components/Timer';
 import hearts from '../assets/hearts.svg';
 import './home.css';
