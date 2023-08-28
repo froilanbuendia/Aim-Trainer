@@ -3,6 +3,10 @@
   src: url('../fonts/Outfit-Regular.ttf');
 }
 
+h1 {
+  display: none;
+}
+
 .upper-play-area {
   display: flex;
   justify-content: space-between;
